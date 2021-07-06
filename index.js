@@ -2,9 +2,18 @@
 
 function my_hash(input) {
 
-  // Hash function always returns a hash value (0)
-  return 0;
-	
+  var hashval = 0;
+
+  for (var i = 0; i < input.length; i++) {
+    var unicode = input.charCodeAt(i);
+    hashval ^= unicode;
+    hashval += (hashval << 1) + (hashval << 4) + (hashval << 7) + (hashval << 8) + (hashval << 24);
+    if (hashval > Number.MAX_SAFE_INTEGER) {
+      hashval = Number.MAX_SAFE_INTEGER;
+    }
+  }
+  console.log(input + ' ' + hashval)
+  return hashval | 0;
 }
 
 // An example test case!

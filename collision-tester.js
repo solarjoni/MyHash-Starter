@@ -24,5 +24,5 @@ fs.readFile('test-words.txt', 'utf8' , (err, data) => {
   });
 
   collisions = words.length - hashes.size;
-  console.log("Number of Collisions Detected: "+collisions);
+  console.log("Number of Collisions Detected: " + collisions);
 });
